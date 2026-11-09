@@ -4,7 +4,7 @@
 |volgnummer|naam|omschrijving|nieuw/recup|kostprijs/stuk|aantal|subtotaal|
 |----------|----|------------|-----------|---------|------|---------|
 |         1|  Arduino Nano V3  |   Microcontrollerbord         |  nieuw         |    3.02          |    1  |      3.02   |
-|2|QTR-8A|sensor|nieuw|12.00|1|12.00|
+|2|QTR-8A|sensor|nieuw|12.39|1|12.39|
 |3|DRV8833|H-brug|nieuw|3.64|1|3.64|
 |4|HC-06|bluetooth module|recup|3.31|1|3.31|
 |5|Micro Metal Gearmotor HPCB 300 6V| Motor|nieuw|1.99|2|3.98|

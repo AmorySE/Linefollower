@@ -7,17 +7,17 @@ lege repository die je als template kan gebruiken om een eigen repository te sta
   
 ## specifications
 
-microcontroller:
+microcontroller: NANO V3 Micro
 
-motors: 
+motors: Micro Metal Gearmotor HPCB 6V
 
-h-bridge:
+h-bridge: DRV8833
 
-sensors:
+sensors: QTR-8A
 
-batteries:
+batteries: 2x18650
 
-wireless communication:
+wireless communication: HC-06
 
 distance sensor - motors:
 

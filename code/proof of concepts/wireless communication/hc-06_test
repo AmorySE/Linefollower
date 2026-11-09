@@ -1,0 +1,24 @@
+#include <SoftwareSerial.h>
+
+SoftwareSerial bt(7, 8);   // RX = D7, TX = D8
+
+void setup() {
+  Serial.begin(115200);
+  bt.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.println("HC-06 test gestart");
+  bt.println("HC-06 klaar");
+}
+
+void loop() {
+  if (bt.available()) {
+    char c = bt.read();
+    Serial.write(c);                       // spiegel naar USB-monitor
+    if (c == '1') { digitalWrite(LED_BUILTIN, HIGH); bt.println("LED aan"); }
+    else if (c == '0') { digitalWrite(LED_BUILTIN, LOW); bt.println("LED uit"); }
+    else if (c == '?') { bt.println(digitalRead(LED_BUILTIN) ? "LED is aan" : "LED is uit"); }
+  }
+  if (Serial.available()) {
+    bt.write(Serial.read());               // van USB-monitor naar telefoon
+  }
+}

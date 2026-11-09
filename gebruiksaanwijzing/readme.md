@@ -1,11 +1,11 @@
 # Gebruiksaanwijzing
 
 ### opladen / vervangen batterijen
-uitleg over het opladen of vervangen van de batterijen
+de 2x 18650 batterijen kunnen gewoon vervangen worden door de oude batterijen uit de houder te halen en nieuwe in te steken
 
 ### draadloze communicatie
 #### verbinding maken
-Schakel de batterijschakelaar op ON om het systeem onder spanning te zetten. Het ledje op de HC-05-module zal snel knipperen. Installeer een seriële communicatie-app, bijvoorbeeld Serial Bluetooth Terminal (beschikbaar in de Google Play Store). Maak hiermee verbinding met de bluetoothmodule. Zodra dit gelukt is, knippert het ledje trager. De microcontroller kan nu draadloos commando’s ontvangen.
+Schakel de batterijschakelaar op ON om het systeem onder spanning te zetten. Het ledje op de HC-06-module zal snel knipperen. Installeer een seriële communicatie-app, bijvoorbeeld Serial Bluetooth Terminal (beschikbaar in de Google Play Store). Maak hiermee verbinding met de bluetoothmodule (Stel zeker de juiste baudrate in). Zodra dit gelukt is, knippert het ledje trager. De microcontroller kan nu draadloos commando’s ontvangen.
 
 #### commando's
 debug [on/off]  

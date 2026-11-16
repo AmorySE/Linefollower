@@ -4,7 +4,9 @@ minimale hard- & software + stappenplan dat aantoont dat 2 motoren onafhankelijk
 
 **Functionaliteit**
 
-Het geschreven programma zal in een loop demonstreren hoe de motoren geleidelijk aan versnellen tot het maximale snelheid, en vervolgens weer vertragen naar 0. Vervolgens wordt gedemonstreerd dat ze ook in tegengestelde richting kunnen draaien, en ook afzonderlijk van elkaar een andere draairichting kunnen aannemen.
+Dit programma demonstreert de werking van de DRV8833 H-brug met twee DC-motoren. Beide motoren versnellen geleidelijk tot hun maximale PWM-waarde (255) en vertragen daarna terug naar 0.
+
+Vervolgens worden verschillende draairichtingen getest, zowel afzonderlijk als gelijktijdig. De ingestelde PWM-waarden en draairichtingen worden weergegeven in de Serial Monitor.
 
 **Arduino code**
 

@@ -14,6 +14,6 @@
 |9|400P-breadboard|Aansluiting|nieuw|3,43|1|3,43|
 |10|Beugel motor|Beugel|nieuw|0,38|2|0,76|
 |11|Dupont-jumperdraden, M-M, 10 cm, 40 stuks|Verbindingsdraden|nieuw|2,59|1|2,59|
-|12|Weerstand 1 kΩ|Weerstand (prijs naar rato van verpakking van 100 stuks à €2,95)|nieuw|0,03|3|0,09|
-|13|Hulpwiel|Wiel (prijs naar rato van verpakking van 30 stuks à €2,19)|nieuw|0,07|1|0,07|
+|12|Weerstand 1 kΩ|Weerstand (100 stuks €2,95)|nieuw|0,03|3|0,09|
+|13|Hulpwiel|Wiel (30 stuks €2,19)|nieuw|0,07|1|0,07|
 |||**Totaal**||||**48,35**|

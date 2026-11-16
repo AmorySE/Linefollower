@@ -8,7 +8,7 @@ De HC-06 maakt via Serial bluetooth terminal verbinding met een smartphone. De c
 
 De aansluitingen zijn:
 
-|HC-06	|Arduino Nano|
+HC-06	Arduino Nano
 
 VCC	5V
 

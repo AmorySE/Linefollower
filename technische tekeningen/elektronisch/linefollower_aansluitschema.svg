@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1040" viewBox="0 0 1500 1040">
+  <defs>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#172033}.title{font-size:30px;font-weight:700}.subtitle{font-size:16px;fill:#475569}.head{font-size:20px;font-weight:700}.label{font-size:15px}.small{font-size:13px}.tiny{font-size:11px}.box{fill:#fff;stroke:#334155;stroke-width:2;rx:12}.power{stroke:#d97706;stroke-width:4;fill:none}.logic{stroke:#2563eb;stroke-width:3;fill:none}.motor{stroke:#dc2626;stroke-width:4;fill:none}.ground{stroke:#475569;stroke-width:3;fill:none}.signal{stroke:#7c3aed;stroke-width:2.5;fill:none}.note{fill:#fff7ed;stroke:#ea580c;stroke-width:1.5;rx:8}.pin{font-size:13px;font-weight:600}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="1500" height="1040" fill="#f8fafc"/>
+  <text x="55" y="58" class="title">Linefollower — elektrisch aansluitschema</text>
+  <text x="55" y="87" class="subtitle">Arduino Nano V3 · QTR-8A · DRV8833 · HC-06 · 2S-18650 | conceptschema, controleer de pinlabels van jouw modules</text>
+
+  <!-- battery and distribution -->
+  <rect x="55" y="150" width="230" height="150" class="box"/>
+  <text x="170" y="183" text-anchor="middle" class="head">2S 18650-pack</text>
+  <text x="170" y="211" text-anchor="middle" class="label">2 cellen in serie</text>
+  <text x="170" y="235" text-anchor="middle" class="label">6,0–8,4 V</text>
+  <text x="80" y="271" class="pin">B+</text><text x="230" y="271" class="pin">B−</text>
+  <path d="M105 260 H55 V330 H320" class="power"/>
+  <path d="M245 260 H285 V910 H320" class="ground"/>
+  <text x="65" y="321" class="small" fill="#b45309">+ pack</text>
+  <text x="293" y="897" class="small">GND gemeenschappelijk</text>
+
+  <!-- regulators -->
+  <rect x="320" y="150" width="250" height="150" class="box"/>
+  <text x="445" y="183" text-anchor="middle" class="head">Buck 5,0 V</text>
+  <text x="445" y="211" text-anchor="middle" class="label">logic / Nano / sensor / BT</text>
+  <text x="340" y="250" class="small">IN+  ← 2S pack</text><text x="340" y="275" class="small">IN−  ← GND</text>
+  <path d="M320 190 H285 V330 H320" class="power"/>
+  <path d="M320 274 H305 V910 H320" class="ground"/>
+  <path d="M570 190 H650 V345 H710" class="logic"/>
+  <text x="585" y="180" class="small" fill="#1d4ed8">gereguleerd +5 V</text>
+
+  <rect x="320" y="385" width="250" height="150" class="box"/>
+  <text x="445" y="418" text-anchor="middle" class="head">Buck 6,0 V</text>
+  <text x="445" y="446" text-anchor="middle" class="label">motorvoeding — vereist</text>
+  <text x="340" y="485" class="small">IN+  ← 2S pack</text><text x="340" y="510" class="small">IN−  ← GND</text>
+  <path d="M320 425 H300 V330 H285" class="power"/>
+  <path d="M320 510 H305 V910 H320" class="ground"/>
+  <path d="M570 425 H665 V450 H710" class="power"/>
+  <text x="580" y="413" class="small" fill="#b45309">gereguleerd +6 V</text>
+
+  <!-- Nano -->
+  <rect x="710" y="150" width="300" height="395" class="box"/>
+  <text x="860" y="184" text-anchor="middle" class="head">Arduino Nano V3</text>
+  <text x="860" y="210" text-anchor="middle" class="small">+5 V op 5V-pin (niet op VIN)</text>
+  <text x="733" y="251" class="pin">A0–A7</text><text x="733" y="276" class="small">QTR-8A OUT1–OUT8</text>
+  <text x="733" y="319" class="pin">D5 / D6</text><text x="733" y="342" class="small">DRV8833 AIN1 / AIN2</text>
+  <text x="733" y="376" class="pin">D9 / D10</text><text x="733" y="399" class="small">DRV8833 BIN1 / BIN2</text>
+  <text x="733" y="433" class="pin">D11 / D12</text><text x="733" y="456" class="small">HC-06 TXD / RXD*</text>
+  <text x="733" y="499" class="pin">5V / GND</text><text x="833" y="499" class="small">voedingsrails</text>
+  <path d="M710 345 H650 V190 H570" class="logic"/>
+  <path d="M710 520 H680 V910 H320" class="ground"/>
+
+  <!-- motor driver -->
+  <rect x="710" y="600" width="300" height="260" class="box"/>
+  <text x="860" y="635" text-anchor="middle" class="head">DRV8833-module</text>
+  <text x="735" y="674" class="pin">VM</text><text x="785" y="674" class="small">+6 V van buck</text>
+  <text x="735" y="706" class="pin">GND</text><text x="785" y="706" class="small">gemeenschappelijke GND</text>
+  <text x="735" y="741" class="pin">AIN1 / AIN2</text><text x="850" y="741" class="small">Nano D5 / D6</text>
+  <text x="735" y="773" class="pin">BIN1 / BIN2</text><text x="850" y="773" class="small">Nano D9 / D10</text>
+  <text x="735" y="805" class="pin">nSLEEP</text><text x="810" y="805" class="small">naar +5 V om driver in te schakelen</text>
+  <text x="735" y="837" class="pin">AOUT1/2 · BOUT1/2</text>
+  <path d="M710 450 H665 V660 H710" class="power"/>
+  <path d="M710 690 H680 V910 H320" class="ground"/>
+  <path d="M820 545 V600" class="signal"/>
+  <text x="830" y="580" class="tiny" fill="#6d28d9">D5, D6, D9, D10 → IN-pinnen (PWM)</text>
+  <path d="M710 190 H675 V795 H710" class="logic"/>
+  <text x="590" y="788" class="tiny" fill="#1d4ed8">+5 V → nSLEEP</text>
+
+  <!-- motors -->
+  <rect x="1110" y="620" width="320" height="100" class="box"/>
+  <text x="1270" y="657" text-anchor="middle" class="head">Linkermotor · 6 V</text>
+  <text x="1270" y="687" text-anchor="middle" class="label">DRV AOUT1 / AOUT2</text>
+  <rect x="1110" y="760" width="320" height="100" class="box"/>
+  <text x="1270" y="797" text-anchor="middle" class="head">Rechtermotor · 6 V</text>
+  <text x="1270" y="827" text-anchor="middle" class="label">DRV BOUT1 / BOUT2</text>
+  <path d="M1010 820 H1060 V670 H1110" class="motor"/>
+  <path d="M1010 837 H1080 V810 H1110" class="motor"/>
+
+  <!-- QTR -->
+  <rect x="55" y="390" width="230" height="330" class="box"/>
+  <text x="170" y="425" text-anchor="middle" class="head">Pololu QTR-8A</text>
+  <text x="78" y="470" class="pin">VCC</text><text x="135" y="470" class="small">+5 V</text>
+  <text x="78" y="501" class="pin">GND</text><text x="135" y="501" class="small">GND</text>
+  <text x="78" y="545" class="pin">OUT1–OUT8</text>
+  <text x="78" y="570" class="small">naar Nano A0–A7</text>
+  <text x="78" y="635" class="small">Analoge sensoruitgangen.</text>
+  <path d="M285 465 H300 V345 H710" class="logic"/>
+  <path d="M285 495 H305 V910 H320" class="ground"/>
+  <path d="M285 550 H610 V260 H710" class="signal"/>
+
+  <!-- HC06 and divider -->
+  <rect x="1110" y="150" width="320" height="300" class="box"/>
+  <text x="1270" y="185" text-anchor="middle" class="head">HC-06 breakout</text>
+  <text x="1135" y="225" class="pin">VCC</text><text x="1200" y="225" class="small">+5 V*</text>
+  <text x="1135" y="254" class="pin">GND</text><text x="1200" y="254" class="small">GND</text>
+  <text x="1135" y="292" class="pin">TXD</text><text x="1200" y="292" class="small">→ Nano D11 (RX)</text>
+  <text x="1135" y="330" class="pin">RXD</text><text x="1200" y="330" class="small">← Nano D12 (TX), via deler</text>
+  <rect x="1135" y="355" width="270" height="72" class="note"/>
+  <text x="1150" y="380" class="small">* Controleer jouw breakout: VCC kan 5 V</text>
+  <text x="1150" y="402" class="small">accepteren; RXD krijgt max. 3,3 V.</text>
+  <path d="M1010 345 H1060 V292 H1110" class="signal"/>
+  <path d="M1010 456 H1045 V330 H1110" class="signal"/>
+  <path d="M1010 190 H1060 V225 H1110" class="logic"/>
+  <path d="M1010 520 H1080 V254 H1110" class="ground"/>
+
+  <!-- Divider inset -->
+  <rect x="1110" y="475" width="320" height="115" class="note"/>
+  <text x="1270" y="501" text-anchor="middle" class="head" style="font-size:16px">RXD-spanningsdeler (3 × 1 kΩ)</text>
+  <text x="1130" y="531" class="small">D12 ─ R1 1k ─●─ HC-06 RXD</text>
+  <text x="1130" y="557" class="small">             ●─ R2 1k ─ R3 1k ─ GND</text>
+  <text x="1130" y="578" class="tiny">Deler: 5 V → circa 3,3 V (R2+R3 in serie)</text>
+
+  <!-- notes -->
+  <rect x="55" y="760" width="520" height="170" class="note"/>
+  <text x="78" y="793" class="head" style="font-size:17px">Belangrijke controlepunten</text>
+  <text x="78" y="823" class="small">• Buckconverters, schakelaar en zekering ontbreken in de huidige BOM.</text>
+  <text x="78" y="850" class="small">• Stel motorbuck in op 6,0 V vóór aansluiting van de motoren.</text>
+  <text x="78" y="877" class="small">• Controleer motor-stallstroom tegen de limiet van jouw DRV8833-module.</text>
+  <text x="78" y="904" class="small">• Alle GND's samen; nooit batterijspanning op de Nano 5V-pin zetten.</text>
+
+  <text x="55" y="985" class="tiny">PWM/richting volgt H-brug PoC: D5, D6, D9, D10. Bluetooth volgt PoC: D11 (RX), D12 (TX).</text>
+  <text x="55" y="1007" class="tiny">Voor montage eerst de datasheets en exacte modulepinout controleren. SVG is een nette aansluittekening, geen gevalideerde PCB/netlist.</text>
+</svg>

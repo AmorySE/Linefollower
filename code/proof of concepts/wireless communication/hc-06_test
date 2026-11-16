@@ -1,24 +1,49 @@
+
+#include <Arduino.h>
 #include <SoftwareSerial.h>
 
-SoftwareSerial bt(7, 8);   // RX = D7, TX = D8
+// ===== Pinnen =====
+const byte rxPin = 11;  // RX Arduino <- TX HC-06
+const byte txPin = 12;  // TX Arduino -> RX HC-06
+
+// ===== Bluetooth communicatie =====
+SoftwareSerial BTSerial(rxPin, txPin); // RX, TX
+
+// ===== Variabelen =====
+char DataFromPhone;
+char DataFromPC;
 
 void setup() {
-  Serial.begin(115200);
-  bt.begin(9600);
-  pinMode(LED_BUILTIN, OUTPUT);
-  Serial.println("HC-06 test gestart");
-  bt.println("HC-06 klaar");
+
+  // Seriele communicatie met de pc
+  Serial.begin(9600);
+
+  // Seriele communicatie met de HC-06
+  BTSerial.begin(9600);
+
+  Serial.println("HC-06 Bluetooth test gestart!");
+  Serial.println("Verbind de smartphone met de HC-06.");
 }
 
 void loop() {
-  if (bt.available()) {
-    char c = bt.read();
-    Serial.write(c);                       // spiegel naar USB-monitor
-    if (c == '1') { digitalWrite(LED_BUILTIN, HIGH); bt.println("LED aan"); }
-    else if (c == '0') { digitalWrite(LED_BUILTIN, LOW); bt.println("LED uit"); }
-    else if (c == '?') { bt.println(digitalRead(LED_BUILTIN) ? "LED is aan" : "LED is uit"); }
+
+  // ===== Smartphone naar PC =====
+  // Controleer of er gegevens binnenkomen via Bluetooth
+  if (BTSerial.available() > 0) {
+
+    DataFromPhone = BTSerial.read();
+
+    // Stuur ontvangen gegevens door naar de pc
+    Serial.write(DataFromPhone);
   }
-  if (Serial.available()) {
-    bt.write(Serial.read());               // van USB-monitor naar telefoon
+
+  // ===== PC naar Smartphone =====
+  // Controleer of er gegevens binnenkomen via USB
+  if (Serial.available() > 0) {
+
+    DataFromPC = Serial.read();
+
+    // Stuur ontvangen gegevens door naar de smartphone
+    BTSerial.write(DataFromPC);
   }
 }

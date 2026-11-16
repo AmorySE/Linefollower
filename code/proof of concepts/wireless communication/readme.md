@@ -8,9 +8,13 @@ De HC-06 maakt via Serial bluetooth terminal verbinding met een smartphone. De c
 
 De aansluitingen zijn:
 HC-06	Arduino Nano
+
 VCC	5V
+
 GND	GND
+
 TXD D11 (RX)
+
 RXD	D12 (TX) via spanningsdeler
 
 Voor de communicatie in de Arduino-code kan de bibliotheek SoftwareSerial.h gebruikt worden. Hiermee wordt een extra seriële verbinding aangemaakt, zodat de USB-seriële verbinding beschikbaar blijft voor communicatie met de computer.

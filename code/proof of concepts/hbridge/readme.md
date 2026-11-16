@@ -8,7 +8,7 @@ Het geschreven programma zal in een loop demonstreren hoe de motoren geleidelijk
 
 **Arduino code**
 
-zie bestand H-Brug_test
+zie bestand H-Brug_test.ino
 
 **Elektronisch schema**
 

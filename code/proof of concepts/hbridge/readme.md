@@ -1,6 +1,7 @@
 # H-Bridge proof of concept
 
 minimale hard- & software + stappenplan dat aantoont dat 2 motoren onafhankelijk van elkaar kunnen draaien, en (traploos) regelbaar zijn in snelheid en draairichting.
+
 **Functionaliteit**
 Het geschreven programma zal in een loop demonstreren hoe de motoren geleidelijk aan versnellen tot het maximale snelheid, en vervolgens weer vertragen naar 0. Vervolgens wordt gedemonstreerd dat ze ook in tegengestelde richting kunnen draaien, en ook afzonderlijk van elkaar een andere draairichting kunnen aannemen.
 **Arduino code**

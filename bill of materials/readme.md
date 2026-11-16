@@ -13,4 +13,5 @@
 |8| 18650 batterij| voeding|nieuw|5.95|2| 11.90|
 |9| 400P breadboard| aansluiting| nieuw|3.43|2|3.43|
 |10| beugel motor| beugel| nieuw|0.38|2|0.76|
+||**Totaal**|||||**45,60**|
 

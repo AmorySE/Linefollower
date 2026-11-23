@@ -31,8 +31,8 @@ zie bestand [H-brug_test.ino](H-brug_test.ino)
 | STBY | Nano 5V | driver altijd actief |
 | VM | batterij + (7,4 V) | motorvoeding |
 | GND | batterij − en Nano GND | gemeenschappelijke massa |
-| AO1 / AO2 | motor A | |
-| BO1 / BO2 | motor B | |
+| AO1 / AO2 | motor A + / − | |
+| BO1 / BO2 | motor B + / − | |
 
 | Nano | aangesloten op |
 |---|---|

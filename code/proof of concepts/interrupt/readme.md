@@ -12,15 +12,18 @@ zie bestand [Interrupt/Interrupt.ino](Interrupt/Interrupt.ino)
 **Benodigdheden**
 
 - Arduino Nano V3
-- drukknop 6x6 mm
+- metalen drukknop met led (5V)
+- 2x 18650 in batterijhouder (voeding via VIN)
 - dupont-draden
 
 **Aansluitingen**
 
 | drukknop | Arduino Nano |
 |---|---|
-| pin 1 | D2 |
-| pin 2 | GND |
+| pin 1 (C) | D2 |
+| pin 2 (NO) | GND |
+| led + | +5V |
+| led − | GND |
 
 Er is **geen externe weerstand** nodig: D2 staat in de code op `INPUT_PULLUP`, waardoor de interne pull-upweerstand (±20–50 kΩ) van de ATmega328P de ingang naar 5 V trekt.
 
@@ -33,6 +36,14 @@ De interrupt reageert daarom op de dalende flank (`FALLING`):
 pinMode(KNOP, INPUT_PULLUP);
 attachInterrupt(digitalPinToInterrupt(KNOP), knopISR, FALLING);
 ```
+
+**Elektronisch schema**
+
+![Elektronisch schema start/stop-knop](schema_interrupt.png)
+
+EasyEDA Pro-bronbestand: [schema_interrupt.epro2](schema_interrupt.epro2) (openen via EasyEDA Pro → File → Open → EasyEDA Pro)
+
+De led in de drukknop is een 5V-led met ingebouwde weerstand (power-on-led): hij hangt rechtstreeks tussen +5V en GND.
 
 **Stappenplan**
 

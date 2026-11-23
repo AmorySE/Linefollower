@@ -32,6 +32,12 @@ D1/TX ──[ R1 1kΩ ]──●──── RXD (HC-06)
 
 Spanning op RXD: 5 V × 2 kΩ / (1 kΩ + 2 kΩ) ≈ 3,3 V. De TXD van de HC-06 (3,3 V) mag rechtstreeks naar D0/RX: dat is voor de Nano al een geldig hoog niveau.
 
+### elektronisch schema
+
+![Elektronisch schema HC-06](schema_hc06.png)
+
+EasyEDA Pro-bronbestand: [schema_hc06.epro2](schema_hc06.epro2) (openen via EasyEDA Pro → File → Open → EasyEDA Pro)
+
 ### opmerkingen
 - De HC-06 werkt als Bluetooth-slavemodule. De smartphone maakt verbinding met de module.
 - De baudrate in de Arduino-code en die van de HC-06 moeten overeenkomen (9600).

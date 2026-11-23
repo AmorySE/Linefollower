@@ -16,5 +16,5 @@
 |11|Dupont-jumperdraden, M-M, 10 cm, 40 stuks|Verbindingsdraden|nieuw|2,59|1|2,59|
 |12|Weerstand 1 kΩ|Spanningsdeler HC-06 RX (R1, R2, R3) (100 stuks €2,95)|nieuw|0,03|3|0,09|
 |13|Hulpwiel|Wiel (30 stuks €2,19)|nieuw|0,07|1|0,07|
-|14|Drukknop 6x6 mm|Start/stop-knop op D2 (100 stuks €1,99)|nieuw|0,02|1|0,02|
-|||**Totaal**||||**48,37**|
+|14|Metalen drukknop met led (5V)|Start/stop-knop op D2 met ingebouwde power-on-led (5V, interne weerstand)|nieuw|1,50|1|1,50|
+|||**Totaal**||||**49,85**|

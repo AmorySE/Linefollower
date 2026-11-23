@@ -17,7 +17,7 @@ Het schema komt overeen met de schema's van de proofs of concept in `code/proof 
 
 - De **aan/uit-schakelaar** zit ingebouwd in de batterijhouder: hij onderbreekt de + van de batterij, zodat motoren en Nano samen uitgeschakeld worden. Daarom staat hij niet als apart onderdeel in het schema.
 - De Nano maakt met zijn eigen regelaar 5 V uit VIN. Die **+5V** voedt de QTR-8A, de HC-06 en STBY van de DRV8833-module.
-- **Power-on-led:** de ingebouwde PWR-led van de Arduino Nano brandt zodra de schakelaar aan staat.
+- **Power-on-led:** de led in de metalen start/stop-drukknop (LEDKnop) hangt tussen +5V en GND en brandt zodra de schakelaar aan staat. Het is een 5V-led met ingebouwde weerstand, daarom staat er geen voorschakelweerstand in het schema.
 
 ### H-brug (DRV8833-module)
 
@@ -49,11 +49,15 @@ Het schema komt overeen met de schema's van de proofs of concept in `code/proof 
 
 Spanningsdeler: D1/TX → R1 (1 kΩ) → RX van de HC-06, en vanaf dat knooppunt R2 + R3 (2× 1 kΩ) naar GND. Zo krijgt de RX ongeveer 3,3 V in plaats van 5 V. Koppel de HC-06 los tijdens het uploaden (D0/D1 delen de USB-verbinding).
 
-### Start/stop-knop
+### Start/stop-knop met led
 
-| drukknop | Arduino Nano |
+Metalen drukknop (monostabiel) met ingebouwde led. In het schema staan de schakelaar (Knop) en de led (LEDKnop) als twee aparte symbolen.
+
+| onderdeel | aansluiting |
 |---|---|
-| pin 1 | D2 (interrupt-pin INT0) |
-| pin 2 | GND |
+| Knop pin 1 (C) | D2 (interrupt-pin INT0) |
+| Knop pin 2 (NO) | GND |
+| LEDKnop + (anode) | +5V |
+| LEDKnop − (kathode) | GND |
 
-Geen externe weerstand: D2 gebruikt de interne pull-up (`INPUT_PULLUP`).
+Geen externe weerstand voor de knop: D2 gebruikt de interne pull-up (`INPUT_PULLUP`). Ook de led heeft geen externe weerstand nodig (5V-versie met interne weerstand).

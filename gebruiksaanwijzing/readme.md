@@ -5,7 +5,7 @@ de 2x 18650 batterijen kunnen gewoon vervangen worden door de oude batterijen ui
 
 ### draadloze communicatie
 #### verbinding maken
-Zet de aan/uit-schakelaar op de batterijhouder op ON om het systeem onder spanning te zetten (de PWR-led op de Nano brandt). Het ledje op de HC-06-module zal snel knipperen. Installeer een seriële communicatie-app, bijvoorbeeld Serial Bluetooth Terminal (beschikbaar in de Google Play Store). Maak hiermee verbinding met de bluetoothmodule (Stel zeker de juiste baudrate in). Zodra dit gelukt is, knippert het ledje trager. De microcontroller kan nu draadloos commando’s ontvangen.
+Zet de aan/uit-schakelaar op de batterijhouder op ON om het systeem onder spanning te zetten (de led in de start/stop-knop brandt). Het ledje op de HC-06-module zal snel knipperen. Installeer een seriële communicatie-app, bijvoorbeeld Serial Bluetooth Terminal (beschikbaar in de Google Play Store). Maak hiermee verbinding met de bluetoothmodule (Stel zeker de juiste baudrate in). Zodra dit gelukt is, knippert het ledje trager. De microcontroller kan nu draadloos commando’s ontvangen.
 
 #### commando's
 debug [on/off]  
@@ -27,10 +27,10 @@ De sensoren meten waardes tussen 0 en 1000 om onderscheid te maken tussen wit en
 De robot rijdt stabiel met volgende parameters:  
 
 ### aan/uit-schakelaar
-De aan/uit-schakelaar zit op de batterijhouder (2x 18650). Hij schakelt de volledige robot (motoren en Arduino Nano) in of uit. Brandt de PWR-led op de Nano, dan staat de robot aan.
+De aan/uit-schakelaar zit op de batterijhouder (2x 18650). Hij schakelt de volledige robot (motoren en Arduino Nano) in of uit. Brandt de led in de start/stop-knop, dan staat de robot aan.
 
 ### start/stop button
-De start/stop-knop is een drukknop die aangesloten is tussen D2 en GND (interne pull-up, geen externe weerstand).
+De start/stop-knop is een metalen drukknop met ingebouwde led, aangesloten tussen D2 en GND (interne pull-up, geen externe weerstand). De led in de knop is de power-on-led.
 
 Werking:
 1. Na het inschakelen brandt de led op de Nano (D13): druk op de knop om de kalibratie te starten.

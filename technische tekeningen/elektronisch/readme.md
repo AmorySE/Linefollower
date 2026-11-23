@@ -16,7 +16,10 @@ Het schema komt overeen met de schema's van de proofs of concept in `code/proof 
 | batterijhouder 2x18650 − | GND van alle onderdelen (gemeenschappelijke massa) |
 
 - De **aan/uit-schakelaar** zit ingebouwd in de batterijhouder: hij onderbreekt de + van de batterij, zodat motoren en Nano samen uitgeschakeld worden. Daarom staat hij niet als apart onderdeel in het schema.
-- De Nano maakt met zijn eigen regelaar 5 V uit VIN. Die **+5V** voedt de QTR-8A, de HC-06 en STBY van de DRV8833-module.
+- De Nano maakt met zijn eigen regelaar 5 V uit VIN. Twee 18650-cellen geven 8,4 V (vol) tot ongeveer 6 V (leeg); de regelaar van de Nano heeft minstens ±7 V op VIN nodig. Laad de cellen dus op zodra de robot trager wordt of de Nano reset.
+- De motoren worden rechtstreeks uit de batterij gevoed (VM), niet via de 5V van de Nano.
+- De **+5V** van de Nano voedt de QTR-8A, de HC-06, STBY van de DRV8833-module en de led in de drukknop.
+- Losse 18650-cellen worden opgeladen met een aparte 18650-lader.
 - **Power-on-led:** de led in de metalen start/stop-drukknop (LEDKnop) hangt tussen +5V en GND en brandt zodra de schakelaar aan staat. Het is een 5V-led met ingebouwde weerstand, daarom staat er geen voorschakelweerstand in het schema.
 
 ### H-brug (DRV8833-module)

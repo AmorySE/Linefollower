@@ -1,4 +1,6 @@
 // Line follower: Arduino Nano + DRV8833 + QTR-8A (8 sensoren) + PID
+// STBY (nSLEEP) van de DRV8833-module hangt vast aan +5V (zie schema): de driver staat altijd aan,
+// daarom wordt STBY niet vanuit de code aangestuurd.
 
 // ===== Pinnen =====
 const int LINKS_1  = 5;    // AIN1

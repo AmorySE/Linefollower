@@ -14,37 +14,57 @@ Laad de batterijen op zodra de robot merkbaar trager rijdt of de Arduino herstar
 
 ### draadloze communicatie
 #### verbinding maken
-Zet de aan/uit-schakelaar op de batterijhouder op ON om het systeem onder spanning te zetten (de led in de start/stop-knop brandt). Het ledje op de HC-06-module zal snel knipperen. Installeer een seriële communicatie-app, bijvoorbeeld Serial Bluetooth Terminal (beschikbaar in de Google Play Store). Maak hiermee verbinding met de bluetoothmodule (Stel zeker de juiste baudrate in). Zodra dit gelukt is, knippert het ledje trager. De microcontroller kan nu draadloos commando’s ontvangen.
+Zet de aan/uit-schakelaar op de batterijhouder op ON om het systeem onder spanning te zetten (de led in de start/stop-knop brandt). Het ledje op de HC-06-module knippert snel. Installeer een seriële communicatie-app, bijvoorbeeld Serial Bluetooth Terminal (Google Play Store), en koppel de HC-06 (pincode 1234 of 0000). Maak verbinding; zodra dit gelukt is, knippert het ledje trager. Stel in de app in dat elk bericht wordt afgesloten met een Enter (CR+LF). De baudrate van de HC-06 is 9600.
+
+Typ `help` om de lijst met commando's te zien en `info` om alle instellingen te bekijken.
 
 #### commando's
-debug [on/off]  
-start  
-stop  
-set cycle [µs]  
-set power [0..255]  
-set diff [0..1]  
-set kp [0..]  
-set ki [0..]  
-set kd [0..]  
-calibrate black  
-calibrate white  
+
+| commando | functie |
+|---|---|
+| `start` | robot start met rijden |
+| `stop` | robot stopt |
+| `calibrate` | kalibratie: beweeg de robot 5 s heen en weer over de lijn |
+| `calibrate white` | kalibratie wit: zet alle sensoren boven wit papier |
+| `calibrate black` | kalibratie zwart: zet alle sensoren boven een zwart vlak |
+| `set power [0..255]` | basissnelheid |
+| `set max [0..255]` | maximale snelheid per motor |
+| `set diff [0..1]` | verdeling van de bijsturing: deel dat het buitenste wiel versnelt (rest: binnenste wiel vertraagt) |
+| `set kp [..]` | proportionele factor PID |
+| `set ki [..]` | integrerende factor PID |
+| `set kd [..]` | differentiërende factor PID |
+| `set cycle [µs]` | cyclustijd van de regeling (1000 … 100000 µs) |
+| `debug on` / `debug off` | meetwaarden doorsturen (5x per seconde) |
+| `info` | alle instellingen en de kalibratie tonen |
+| `sensors` | sensorwaarden (ruw en 0 … 1000) en positie tonen |
+| `reset` | standaardinstellingen herstellen |
+| `help` | lijst met commando's |
+
+Hoofdletters maken niet uit. Elke wijziging wordt meteen in het EEPROM bewaard: na het uitschakelen start de robot op met de laatst opgeslagen instellingen en kalibratie.
 
 ### kalibratie
-De sensoren meten waardes tussen 0 en 1000 om onderscheid te maken tussen wit en zwart. Deze waardes kunnen variëren door lichtinval, reflecties of andere storingen. Voor een betrouwbare werking moet de robot opnieuw gekalibreerd worden bij een verandering van omgeving of ondergrond. 
+De sensoren meten waardes tussen 0 en 1000 om onderscheid te maken tussen wit en zwart. Deze waardes kunnen variëren door lichtinval (zonlicht, tl-lampen), reflecties of andere storingen. Kalibreer daarom opnieuw bij een verandering van omgeving of ondergrond.
+
+Twee manieren:
+- **Zwaaien:** typ `calibrate` (of druk op de knop als de robot nog niet gekalibreerd is) en beweeg de robot 5 seconden heen en weer over de lijn, 2-3 mm boven het papier. De led op de Nano knippert tijdens het kalibreren.
+- **Wit en zwart apart:** zet de robot met alle sensoren op wit papier en typ `calibrate white`; zet hem daarna op een zwart vlak en typ `calibrate black`.
+
+Ziet een sensor te weinig verschil tussen wit en zwart, dan meldt de robot dit en blijft hij als niet gekalibreerd staan.
 
 ### settings
-De robot rijdt stabiel met volgende parameters:  
+Standaardwaarden (na `reset`): power 90, max 180, diff 0,5, kp 0,03, ki 0, kd 0,2, cycle 3000 µs.
+
+De robot rijdt stabiel met volgende parameters:
 
 ### aan/uit-schakelaar
 De aan/uit-schakelaar zit op de batterijhouder (2x 18650). Hij schakelt de volledige robot (motoren en Arduino Nano) in of uit. Brandt de led in de start/stop-knop, dan staat de robot aan.
 
 ### start/stop button
-De start/stop-knop is een metalen drukknop met ingebouwde led, aangesloten tussen D2 en GND (interne pull-up, geen externe weerstand). De led in de knop is de power-on-led.
+De start/stop-knop is een metalen drukknop met ingebouwde led, aangesloten tussen D2 en GND (interne pull-up, hardware-interrupt). De led in de knop is de power-on-led.
 
 Werking:
-1. Na het inschakelen brandt de led op de Nano (D13): druk op de knop om de kalibratie te starten.
-2. Beweeg de robot gedurende 5 seconden met de hand heen en weer over de lijn (sensoren over wit én zwart).
-3. De led brandt opnieuw: zet de robot op de lijn en druk op de knop. De robot begint te rijden.
-4. Druk tijdens het rijden op de knop om te stoppen; de led brandt. Druk opnieuw om verder te rijden.
+1. Is de robot nog niet gekalibreerd, dan start een druk op de knop de kalibratie (5 s zwaaien over de lijn).
+2. Zet de robot op de lijn en druk op de knop: de robot rijdt en de led op de Nano (D13) brandt.
+3. Druk opnieuw op de knop om te stoppen; de led op de Nano dooft.
 
-Verliest de robot de lijn langer dan 2 seconden, dan stopt hij ook vanzelf; druk dan op de knop om opnieuw te starten.
+Op kruispunten rijdt de robot rechtdoor. Korte onderbrekingen in de lijn overbrugt hij door rechtdoor te rijden. Verliest de robot de lijn langer dan 1,5 seconden, dan stopt hij vanzelf; druk dan op de knop (of typ `start`) om opnieuw te starten.

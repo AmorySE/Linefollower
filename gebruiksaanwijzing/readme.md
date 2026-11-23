@@ -5,7 +5,7 @@ de 2x 18650 batterijen kunnen gewoon vervangen worden door de oude batterijen ui
 
 ### draadloze communicatie
 #### verbinding maken
-Schakel de batterijschakelaar op ON om het systeem onder spanning te zetten. Het ledje op de HC-06-module zal snel knipperen. Installeer een seriële communicatie-app, bijvoorbeeld Serial Bluetooth Terminal (beschikbaar in de Google Play Store). Maak hiermee verbinding met de bluetoothmodule (Stel zeker de juiste baudrate in). Zodra dit gelukt is, knippert het ledje trager. De microcontroller kan nu draadloos commando’s ontvangen.
+Zet de aan/uit-schakelaar op de batterijhouder op ON om het systeem onder spanning te zetten (de PWR-led op de Nano brandt). Het ledje op de HC-06-module zal snel knipperen. Installeer een seriële communicatie-app, bijvoorbeeld Serial Bluetooth Terminal (beschikbaar in de Google Play Store). Maak hiermee verbinding met de bluetoothmodule (Stel zeker de juiste baudrate in). Zodra dit gelukt is, knippert het ledje trager. De microcontroller kan nu draadloos commando’s ontvangen.
 
 #### commando's
 debug [on/off]  
@@ -26,5 +26,16 @@ De sensoren meten waardes tussen 0 en 1000 om onderscheid te maken tussen wit en
 ### settings
 De robot rijdt stabiel met volgende parameters:  
 
+### aan/uit-schakelaar
+De aan/uit-schakelaar zit op de batterijhouder (2x 18650). Hij schakelt de volledige robot (motoren en Arduino Nano) in of uit. Brandt de PWR-led op de Nano, dan staat de robot aan.
+
 ### start/stop button
-uitleg locatie + werking start/stop button
+De start/stop-knop is een drukknop die aangesloten is tussen D2 en GND (interne pull-up, geen externe weerstand).
+
+Werking:
+1. Na het inschakelen brandt de led op de Nano (D13): druk op de knop om de kalibratie te starten.
+2. Beweeg de robot gedurende 5 seconden met de hand heen en weer over de lijn (sensoren over wit én zwart).
+3. De led brandt opnieuw: zet de robot op de lijn en druk op de knop. De robot begint te rijden.
+4. Druk tijdens het rijden op de knop om te stoppen; de led brandt. Druk opnieuw om verder te rijden.
+
+Verliest de robot de lijn langer dan 2 seconden, dan stopt hij ook vanzelf; druk dan op de knop om opnieuw te starten.

@@ -1,3 +1,8 @@
+// Interrupt-test start/stop-knop
+// Drukknop tussen D2 en GND, geen externe weerstand: D2 staat op INPUT_PULLUP (interne pull-up ~20-50 kOhm).
+// Niet ingedrukt = HIGH, ingedrukt = LOW -> interrupt op de dalende flank (FALLING).
+// Serial Monitor: 115200 baud
+
 const int KNOP = 2;
 const unsigned long DEBOUNCE_MS = 200;
 

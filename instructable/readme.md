@@ -82,7 +82,7 @@ Bedraad alles volgens het [elektronisch schema](../technische%20tekeningen/elekt
 4. Typ `help`: de lijst met commando's verschijnt.
 
 ### stap 10: kalibreren en rijden
-1. Typ `calibrate` en beweeg de robot 5 s heen en weer over de lijn.
-2. Zet de robot op de lijn en typ `start` (of druk op de knop).
+1. Druk op de knop (of typ `calibrate`) en beweeg de robot 5 s heen en weer over de lijn.
+2. Zet de robot op de lijn en druk opnieuw op de knop (of typ `start`).
 3. Controleer de rijrichting: draait een wiel verkeerd, zet dan `LINKS_OMKEREN` of `RECHTS_OMKEREN` op `true` in de code en upload opnieuw (stap 7).
 4. Stel de snelheid en de PID-regeling af met `set power`, `set kp`, `set kd` (zie [gebruiksaanwijzing](../gebruiksaanwijzing/)). De instellingen worden automatisch in het EEPROM bewaard.

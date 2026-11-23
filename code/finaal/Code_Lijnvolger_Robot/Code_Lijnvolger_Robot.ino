@@ -5,6 +5,8 @@
 // - Alle instellingen en de kalibratie worden in het EEPROM bewaard; bij het opstarten
 //   worden de laatst opgeslagen instellingen geladen.
 // - Start/stop-knop op D2 (naar GND, INPUT_PULLUP) via een hardware-interrupt.
+//   Na elke keer opstarten: 1e klik = kalibreren (5 s zwaaien), 2e klik = rijden,
+//   daarna wisselt elke klik tussen stop en rijden.
 // - STBY (nSLEEP) van de DRV8833-module hangt vast aan +5V (zie schema): de driver staat
 //   altijd aan, daarom wordt STBY niet vanuit de code aangestuurd.
 // - Koppel de HC-06 los tijdens het uploaden (D0/D1 delen de USB-verbinding).
@@ -59,6 +61,7 @@ void controleerKalibratie();
 int ruw[8];                // laatst gemeten ADC-waarden 0..1023
 int donker[8];             // 0 = wit, 1000 = zwart (na kalibratie)
 bool rijden = false;
+bool sessieGekalibreerd = false;   // sinds het opstarten al gekalibreerd (knop: 1e klik = kalibreren)
 int laatstePositie = 3500;
 float laatsteFout = 0;
 float integraal = 0;
@@ -241,6 +244,7 @@ void controleerKalibratie() {
     }
   }
   inst.gekalibreerd = ok;
+  sessieGekalibreerd = ok;
   bewaar();
 }
 
@@ -486,7 +490,7 @@ void setup() {
   Serial.begin(BAUD);
   Serial.println(F("Line follower gestart. Typ 'help' voor de commando's."));
   laadInstellingen();
-  if (!inst.gekalibreerd) Serial.println(F("Nog niet gekalibreerd: druk op de knop of typ 'calibrate'."));
+  Serial.println(F("Knop: 1e klik = kalibreren (5 s over de lijn zwaaien), 2e klik = rijden."));
 
   attachInterrupt(digitalPinToInterrupt(KNOP), knopISR, FALLING);
 }
@@ -494,12 +498,12 @@ void setup() {
 void loop() {
   leesSerieel();
 
-  // Start/stop-knop: niet gekalibreerd -> kalibreren, anders start/stop wisselen
+  // Start/stop-knop: 1e klik na opstarten = kalibreren, daarna start/stop wisselen
   if (knopGedrukt) {
     knopGedrukt = false;
-    if (rijden)                   stop();
-    else if (!inst.gekalibreerd)  kalibreerZwaai();
-    else                          start();
+    if (rijden)                     stop();
+    else if (!sessieGekalibreerd)   kalibreerZwaai();
+    else                            start();
   }
 
   if (rijden) {

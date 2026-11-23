@@ -46,7 +46,7 @@ Hoofdletters maken niet uit. Elke wijziging wordt meteen in het EEPROM bewaard: 
 De sensoren meten waardes tussen 0 en 1000 om onderscheid te maken tussen wit en zwart. Deze waardes kunnen variëren door lichtinval (zonlicht, tl-lampen), reflecties of andere storingen. Kalibreer daarom opnieuw bij een verandering van omgeving of ondergrond.
 
 Twee manieren:
-- **Zwaaien:** typ `calibrate` (of druk op de knop als de robot nog niet gekalibreerd is) en beweeg de robot 5 seconden heen en weer over de lijn, 2-3 mm boven het papier. De led op de Nano knippert tijdens het kalibreren.
+- **Zwaaien:** typ `calibrate` (of druk na het inschakelen een eerste keer op de knop) en beweeg de robot 5 seconden heen en weer over de lijn, 2-3 mm boven het papier. De led op de Nano knippert tijdens het kalibreren.
 - **Wit en zwart apart:** zet de robot met alle sensoren op wit papier en typ `calibrate white`; zet hem daarna op een zwart vlak en typ `calibrate black`.
 
 Ziet een sensor te weinig verschil tussen wit en zwart, dan meldt de robot dit en blijft hij als niet gekalibreerd staan.
@@ -62,9 +62,11 @@ De aan/uit-schakelaar zit op de batterijhouder (2x 18650). Hij schakelt de volle
 ### start/stop button
 De start/stop-knop is een metalen drukknop met ingebouwde led. Hij is met draden aangesloten op het breadboard van de robot: de schakelaar tussen D2 en GND (interne pull-up, hardware-interrupt), de led tussen +5V en GND. De led in de knop is de power-on-led.
 
-Werking:
-1. Is de robot nog niet gekalibreerd, dan start een druk op de knop de kalibratie (5 s zwaaien over de lijn).
-2. Zet de robot op de lijn en druk op de knop: de robot rijdt en de led op de Nano (D13) brandt.
-3. Druk opnieuw op de knop om te stoppen; de led op de Nano dooft.
+Werking (na elke keer inschakelen):
+1. **1e klik: kalibreren.** Beweeg de robot 5 seconden heen en weer over de lijn; de led op de Nano (D13) knippert.
+2. **2e klik: rijden.** Zet de robot op de lijn en druk op de knop: de robot rijdt en de led op de Nano brandt.
+3. **Volgende klikken:** wisselen tussen stoppen (led dooft) en verder rijden.
+
+Na het uit- en inschakelen begint het opnieuw bij stap 1, zodat de robot altijd gekalibreerd is voor het licht van dat moment. De andere instellingen (snelheid, PID, …) blijven bewaard in het EEPROM. Via bluetooth start `start` meteen met de laatst bewaarde kalibratie.
 
 Op kruispunten rijdt de robot rechtdoor. Korte onderbrekingen in de lijn overbrugt hij door rechtdoor te rijden. Verliest de robot de lijn langer dan 1,5 seconden, dan stopt hij vanzelf; druk dan op de knop (of typ `start`) om opnieuw te starten.

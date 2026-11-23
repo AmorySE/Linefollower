@@ -35,7 +35,7 @@ STBY van de DRV8833-module hangt vast aan +5V: de driver staat altijd aan en wor
 - **PID-regeling:** wordt uitgevoerd met een vaste cyclustijd (`set cycle`, standaard 3000 µs). Fout = positie − 3500. De output wordt met `diff` verdeeld: het buitenste wiel versnelt met `diff × output`, het binnenste wiel vertraagt met `(1 − diff) × output`. Elke motor wordt begrensd op `max` (6V-motoren op 7,4 V).
 - **Kruispunten:** zien 6 of meer sensoren zwart, dan rijdt de robot rechtdoor.
 - **Onderbrekingen:** is de lijn minder dan 150 ms weg, dan rijdt de robot rechtdoor; daarna draait hij naar de kant waar de lijn het laatst was, en na 1,5 s zonder lijn stopt hij.
-- **Start/stop-knop:** hardware-interrupt op D2 met debounce. Niet gekalibreerd → kalibreren, anders start/stop wisselen.
+- **Start/stop-knop:** hardware-interrupt op D2 met debounce. Na elke keer opstarten: 1e klik = kalibreren (5 s zwaaien), 2e klik = rijden, daarna wisselt elke klik tussen stop en rijden. Het commando `start` gebruikt de laatst bewaarde kalibratie uit het EEPROM.
 - **Debug:** met `debug on` worden 5x per seconde positie, PID-output, PWM links/rechts en de gemeten cyclustijd doorgestuurd (bij stilstand: de sensorwaarden).
 
 ## Vaste instellingen (bovenaan in de code)

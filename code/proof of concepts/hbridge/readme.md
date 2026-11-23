@@ -10,7 +10,7 @@ Vervolgens worden verschillende draairichtingen getest, zowel afzonderlijk als g
 
 **Arduino code**
 
-zie bestand [H-brug_test.ino](H-brug_test.ino)
+zie bestand [H-brug_test/H-brug_test.ino](H-brug_test/H-brug_test.ino)
 
 **Benodigdheden**
 

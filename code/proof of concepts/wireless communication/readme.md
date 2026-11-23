@@ -7,7 +7,7 @@ De draadloze communicatie wordt gerealiseerd met een HC-06 Bluetoothmodule die v
 
 De HC-06 maakt via Serial Bluetooth Terminal verbinding met een smartphone. De communicatie tussen de Arduino en de Bluetoothmodule gebeurt via seriële communicatie met `Serial` op **9600 baud** (standaardinstelling van de HC-06).
 
-**Arduino code:** zie bestand [hc-06_test.ino](hc-06_test.ino)
+**Arduino code:** zie bestand [hc-06_test/hc-06_test.ino](hc-06_test/hc-06_test.ino)
 
 ### aansluitingen
 

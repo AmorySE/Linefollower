@@ -7,7 +7,7 @@ Een drukknop op D2 (interrupt-pin INT0 van de Nano) start een interrupt-routine 
 
 **Arduino code**
 
-zie bestand [Interrupt.ino](Interrupt.ino)
+zie bestand [Interrupt/Interrupt.ino](Interrupt/Interrupt.ino)
 
 **Benodigdheden**
 

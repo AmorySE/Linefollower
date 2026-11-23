@@ -12,7 +12,7 @@ Uit de 8 waarden wordt ook de positie van de lijn berekend (gewogen gemiddelde):
 
 **Arduino code**
 
-zie bestand [QTR-8A_Test.ino](QTR-8A_Test.ino)
+zie bestand [QTR-8A_Test/QTR-8A_Test.ino](QTR-8A_Test/QTR-8A_Test.ino)
 
 **Benodigdheden**
 

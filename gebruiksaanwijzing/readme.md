@@ -1,7 +1,16 @@
 # Gebruiksaanwijzing
 
 ### opladen / vervangen batterijen
-de 2x 18650 batterijen kunnen gewoon vervangen worden door de oude batterijen uit de houder te halen en nieuwe in te steken
+De robot werkt op 2 oplaadbare 18650-batterijen (Li-ion) in de batterijhouder.
+
+Opladen:
+1. Zet de aan/uit-schakelaar op de batterijhouder op OFF.
+2. Haal de 2 batterijen uit de houder.
+3. Steek ze in de USB-lader voor 18650 (let op + en −) en sluit de lader aan op een USB-poort of -adapter.
+4. Wacht tot het lampje op de lader aangeeft dat de batterijen vol zijn.
+5. Steek de batterijen terug in de houder (let op + en −).
+
+Laad de batterijen op zodra de robot merkbaar trager rijdt of de Arduino herstart: onder ongeveer 7 V krijgt de Nano te weinig spanning via VIN. Vervang ze enkel als ze beschadigd zijn of niet meer opladen.
 
 ### draadloze communicatie
 #### verbinding maken

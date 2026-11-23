@@ -17,4 +17,5 @@
 |12|Weerstand 1 kΩ|Spanningsdeler HC-06 (100 stuks €2,95)|nieuw|0,03|3|0,09|
 |13|Hulpwiel|Wiel (30 stuks €2,19)|nieuw|0,07|1|0,07|
 |14|Metalen drukknop met led (5V)|Start/stop-knop met led|nieuw|4,60|1|4,60|
-|||**Totaal**||||**52,95**|
+|15|USB-lader 18650|Lader voor de batterijen|nieuw|4,00|1|4,00|
+|||**Totaal**||||**56,95**|

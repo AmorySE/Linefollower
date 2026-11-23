@@ -60,7 +60,7 @@ De robot rijdt stabiel met volgende parameters:
 De aan/uit-schakelaar zit op de batterijhouder (2x 18650). Hij schakelt de volledige robot (motoren en Arduino Nano) in of uit. Brandt de led in de start/stop-knop, dan staat de robot aan.
 
 ### start/stop button
-De start/stop-knop is een metalen drukknop met ingebouwde led, aangesloten tussen D2 en GND (interne pull-up, hardware-interrupt). De led in de knop is de power-on-led.
+De start/stop-knop is een metalen drukknop met ingebouwde led. Hij is met draden aangesloten op het breadboard van de robot: de schakelaar tussen D2 en GND (interne pull-up, hardware-interrupt), de led tussen +5V en GND. De led in de knop is de power-on-led.
 
 Werking:
 1. Is de robot nog niet gekalibreerd, dan start een druk op de knop de kalibratie (5 s zwaaien over de lijn).
